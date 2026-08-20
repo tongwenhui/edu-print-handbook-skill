@@ -1,10 +1,6 @@
 # edu-print-handbook-skill
 
 <p align="center">
-  <img src="docs/logo.svg" alt="edu-print-handbook-skill logo" width="160">
-</p>
-
-<p align="center">
   一套<strong>版式锁死</strong>的高校印刷品生成系统：**一套内容模型（JSON）+ 三套视觉风格**，以 Claude Code / opencode Skill 形式交付。
 
 生成**单文件 HTML** 可打印分页手册：210×285 大16开单页，打印对开 420×285 拼版（含 3mm 出血），`@media print` 直接「另存为 PDF」得到对开成品。屏幕纵向滚动一屏一卡，打印逐对开输出，屏幕所见 = 打印所得。
