@@ -16,7 +16,7 @@
  *     等待全量内容到位后由配对器自动两两拼对开。
  *   - meta.sample !== true：内容页两两配对（左页 + 右页），绝无右页空白。
  */
-import { readFileSync, writeFileSync, cpSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, cpSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -702,6 +702,11 @@ cpSync(fontsSrc, fontsDst, { recursive: true });
 // 占位校徽：build 自动同步 _shared/placeholders/ → 输出目录 images/（真实校徽替换后不受影响）
 mkdirSync(join(dirname(outPath), 'images'), { recursive: true });
 cpSync(join(SHARED, 'placeholders', 'logo-placeholder.svg'), join(dirname(outPath), 'images', 'logo-placeholder.svg'));
+// 同步内容 JSON 目录下的 images/ 到输出目录（示例封面、2026 年份 SVG 等）
+const contentImagesDir = join(dirname(jsonPath), 'images');
+if (existsSync(contentImagesDir)) {
+  cpSync(contentImagesDir, join(dirname(outPath), 'images'), { recursive: true, force: true });
+}
 console.log(`已生成: ${outPath}`);
 console.log(`  字体已同步: ${fontsDst}`);
 console.log(`  数据页底距报告（目标 6–14mm）:`);

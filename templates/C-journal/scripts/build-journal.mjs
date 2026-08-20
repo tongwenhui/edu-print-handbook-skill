@@ -20,7 +20,7 @@
  * 主题映射：seal ← 主题 --accent；ink ← --cov-ink；paper ← --bg；paper-2 ← --surface；
  *   ink-2 ← --fg；muted ← --muted；border ← --border。
  */
-import { readFileSync, writeFileSync, cpSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, cpSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -598,4 +598,9 @@ cpSync(join(SHARED, 'fonts'), join(dirname(outPath), 'fonts'), { recursive: true
 mkdirSync(join(dirname(outPath), 'images'), { recursive: true });
 cpSync(join(SHARED, 'placeholders', 'logo-placeholder.svg'), join(dirname(outPath), 'images', 'logo-placeholder.svg'));
 writeFileSync(outPath, out);
+// 同步内容 JSON 目录下的 images/ 到输出目录
+const contentImagesDir = join(dirname(jsonPath), 'images');
+if (existsSync(contentImagesDir)) {
+  cpSync(contentImagesDir, join(dirname(outPath), 'images'), { recursive: true, force: true });
+}
 console.log(`OK ${outPath} · 主题 ${themeName}（seal ${theme.accent} / ink ${theme['cov-ink']}）· ${spreads.length} 对开 / ${totalPages} 页`);

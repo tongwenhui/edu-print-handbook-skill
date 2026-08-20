@@ -19,7 +19,7 @@
  *
  * 主题映射：accent ← 主题 --cov-ink（B 唯一换色入口）；--chart-2/3/4 固定图表辅色。
  */
-import { readFileSync, writeFileSync, cpSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, cpSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -728,4 +728,9 @@ cpSync(join(SHARED, 'fonts'), join(dirname(outPath), 'fonts'), { recursive: true
 mkdirSync(join(dirname(outPath), 'images'), { recursive: true });
 cpSync(join(SHARED, 'placeholders', 'logo-placeholder.svg'), join(dirname(outPath), 'images', 'logo-placeholder.svg'));
 writeFileSync(outPath, out);
+// 同步内容 JSON 目录下的 images/ 到输出目录
+const contentImagesDir = join(dirname(jsonPath), 'images');
+if (existsSync(contentImagesDir)) {
+  cpSync(contentImagesDir, join(dirname(outPath), 'images'), { recursive: true, force: true });
+}
 console.log(`OK ${outPath} · 主题 ${themeName}（accent ${accent}）· ${spreads.length} 对开 / ${totalPages} 页`);
