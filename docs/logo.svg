@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="edu-print-handbook-skill logo">
+  <!-- 深色圆角背景 -->
+  <rect width="512" height="512" rx="112" fill="#1E293B"/>
+
+  <!-- 打开的手册主体 -->
+  <g transform="translate(256, 255)">
+    <!-- 左页（A 瑞士风：蓝色） -->
+    <path d="M-128 -105 C-70 -140 -20 -120 0 -105 L0 135 C-30 150 -80 165 -128 145 Z" fill="#3B82F6"/>
+    <!-- 右页（B 杂志风：暖棕） -->
+    <path d="M128 -105 C70 -140 20 -120 0 -105 L0 135 C30 150 80 165 128 145 Z" fill="#A05D33"/>
+    <!-- 左页内高光 -->
+    <path d="M-115 -95 C-70 -120 -25 -110 -10 -95 L-10 125 C-30 135 -75 145 -115 130 Z" fill="#93C5FD" opacity="0.28"/>
+    <!-- 右页内高光 -->
+    <path d="M115 -95 C70 -120 25 -110 10 -95 L10 125 C30 135 75 145 115 130 Z" fill="#FDBA74" opacity="0.22"/>
+    <!-- 书脊 -->
+    <rect x="-7" y="-120" width="14" height="270" rx="4" fill="#F8FAFC"/>
+  </g>
+
+  <!-- 页内排版线条（模拟版式网格） -->
+  <g transform="translate(256, 255)" fill="#F8FAFC" opacity="0.82">
+    <!-- 左页 -->
+    <rect x="-100" y="-70" width="75" height="7" rx="1"/>
+    <rect x="-100" y="-52" width="55" height="4" rx="1" opacity="0.55"/>
+    <rect x="-100" y="-40" width="65" height="4" rx="1" opacity="0.55"/>
+    <rect x="-100" y="-12" width="50" height="28" rx="2" opacity="0.18"/>
+    <!-- 右页 -->
+    <rect x="30" y="-70" width="75" height="7" rx="1"/>
+    <rect x="30" y="-52" width="55" height="4" rx="1" opacity="0.55"/>
+    <rect x="30" y="-40" width="65" height="4" rx="1" opacity="0.55"/>
+    <rect x="30" y="-12" width="50" height="40" rx="2" opacity="0.15"/>
+  </g>
+
+  <!-- 东方学报意象：顶部红色印章 -->
+  <g transform="translate(256, 118)">
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#B91C1C" stroke-width="4"/>
+    <rect x="-8" y="-8" width="16" height="16" rx="2" fill="#B91C1C"/>
+  </g>
+
+  <!-- 顶部标识 -->
+  <text x="256" y="92" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="28" font-weight="700" letter-spacing="4" fill="#94A3B8">SKILL</text>
+
+  <!-- 底部三风格色条 -->
+  <g transform="translate(196, 435)">
+    <rect width="40" height="8" rx="4" fill="#2E5A9E"/>
+    <rect x="48" width="40" height="8" rx="4" fill="#8B4A24"/>
+    <rect x="96" width="40" height="8" rx="4" fill="#8C3B2B"/>
+  </g>
+</svg>

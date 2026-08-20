@@ -1,6 +1,11 @@
 # edu-print-handbook-skill
 
-一套**版式锁死**的高校印刷品生成系统：**一套内容模型（JSON）+ 三套视觉风格**，以 Claude Code / opencode Skill 形式交付。
+<p align="center">
+  <img src="docs/logo.svg" alt="edu-print-handbook-skill logo" width="160">
+</p>
+
+<p align="center">
+  一套<strong>版式锁死</strong>的高校印刷品生成系统：**一套内容模型（JSON）+ 三套视觉风格**，以 Claude Code / opencode Skill 形式交付。
 
 生成**单文件 HTML** 可打印分页手册：210×285 大16开单页，打印对开 420×285 拼版（含 3mm 出血），`@media print` 直接「另存为 PDF」得到对开成品。屏幕纵向滚动一屏一卡，打印逐对开输出，屏幕所见 = 打印所得。
 
@@ -13,6 +18,10 @@
 | **A · 简洁教育 × 极简瑞士风** | 瑞士风 / 简洁 / 极简 / 干净 / minimal / swiss | L00–L11 | 无衬线、直角纯色、hairline、单一 accent、极致留白 |
 | **B · 杂志编辑风**（默认） | 杂志 / 编辑风 / editorial / magazine / 图文混排 / 文章式 / 无风格词默认 | M00–M17 | 刊头 masthead、衬线大标题、pull-quote、folio 眉脚 |
 | **C · 东方学报风** | 学报 / 书院 / 东方 / 竖排 / 宋体 / 宣纸 / 印章 / journal | X00–X18 | 宣纸底 + 墨色正文 + 朱砂唯一点缀、竖排目录、印章、文武线 |
+
+<p align="center">
+  <img src="docs/preview-3styles.png" alt="三风格封面预览" width="100%">
+</p>
 
 三套共用同一内容模型与物理规格，同一份内容 JSON 可在三套间互转（`meta.std=0.1` 结构同族），区别只在视觉层。三套共用 9 套预设主题色板（`_shared/themes.md`，hex+CMYK 双值，第 9 套「朱砂」为 C 专属）。
 
